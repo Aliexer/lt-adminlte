@@ -22,22 +22,22 @@ class LtAdminlteServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__.'/../config/config.php' => config_path('lt-adminlte.php'),
-            ], 'config');
+            ], 'lt-adminlte:config');
 
             // Publishing the views.
             /*$this->publishes([
                 __DIR__.'/../resources/views' => resource_path('views/vendor/lt-adminlte'),
-            ], 'views');*/
+            ], 'lt-adminlte:views');*/
 
             // Publishing assets.
             /*$this->publishes([
                 __DIR__.'/../resources/assets' => public_path('vendor/lt-adminlte'),
-            ], 'assets');*/
+            ], 'lt-adminlte:assets');*/
 
             // Publishing the translation files.
             /*$this->publishes([
                 __DIR__.'/../resources/lang' => resource_path('lang/vendor/lt-adminlte'),
-            ], 'lang');*/
+            ], 'lt-adminlte:lang');*/
 
             // Registering package commands.
             // $this->commands([]);
