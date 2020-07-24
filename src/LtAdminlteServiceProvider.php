@@ -10,6 +10,7 @@ use LaravelTemplate\LtAdminlte\Components\Layouts\MenuItem;
 use LaravelTemplate\LtAdminlte\Components\Layouts\Navbar;
 use LaravelTemplate\LtAdminlte\Components\Layouts\Scripts;
 use LaravelTemplate\LtAdminlte\Components\Layouts\Sidebar;
+use LaravelTemplate\LtAdminlte\Components\Layouts\SidebarLink;
 use LaravelTemplate\LtAdminlte\Components\Layouts\Styles;
 use LaravelTemplate\LtAdminlte\Components\Main;
 
@@ -30,6 +31,7 @@ class LtAdminlteServiceProvider extends ServiceProvider
 
         $this->loadViewComponentsAs('adminlte', [
             Sidebar::class,
+            SidebarLink::class,
             ControlSidebar::class,
             Navbar::class,
             Styles::class,
