@@ -14,16 +14,33 @@ class Main extends Component
 
     public string $pageTitle;
 
-    public function __construct(string $title, string $pageTitle, string $indexUrl = null, string $logo = null)
-    {
+    public array $navbarLinks;
+
+    public array $breadcrumb;
+
+    public function __construct(
+        string $title,
+        string $pageTitle,
+        array $navbarLinks = [],
+        array $breadcrumb = [],
+        string $indexUrl = null,
+        string $logo = null
+    ) {
         $this->title = $title;
         $this->pageTitle = $pageTitle;
         $this->logo = $logo;
         $this->indexUrl = $indexUrl;
+        $this->navbarLinks = $navbarLinks;
+        $this->breadcrumb = $breadcrumb;
     }
 
     public function render()
     {
         return view('lt-adminlte::components.main');
+    }
+
+    public function hasBreadcrumb()
+    {
+        return $this->breadcrumb !== [];
     }
 }

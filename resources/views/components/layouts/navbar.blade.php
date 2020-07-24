@@ -5,12 +5,11 @@
         <li class="nav-item">
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
+        @foreach($links as $item)
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="index3.html" class="nav-link">Home</a>
+            <a href="{{$item['link']}}" class="nav-link">{{$item['name']}}</a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Contact</a>
-        </li>
+        @endforeach
     </ul>
 
 
@@ -27,7 +26,8 @@
                 <a href="#" class="dropdown-item">
                     <!-- Message Start -->
                     <div class="media">
-                        <img src="{{asset('/assets/adminlte/img/user1-128x128.jpg')}}" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                        <img src="{{asset('/assets/adminlte/img/user1-128x128.jpg')}}" alt="User Avatar"
+                            class="img-size-50 mr-3 img-circle">
                         <div class="media-body">
                             <h3 class="dropdown-item-title">
                                 Brad Diesel
@@ -43,7 +43,8 @@
                 <a href="#" class="dropdown-item">
                     <!-- Message Start -->
                     <div class="media">
-                        <img src="{{asset('/assets/adminlte/img/user8-128x128.jpg')}}" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                        <img src="{{asset('/assets/adminlte/img/user8-128x128.jpg')}}" alt="User Avatar"
+                            class="img-size-50 img-circle mr-3">
                         <div class="media-body">
                             <h3 class="dropdown-item-title">
                                 John Pierce
@@ -59,7 +60,8 @@
                 <a href="#" class="dropdown-item">
                     <!-- Message Start -->
                     <div class="media">
-                        <img src="{{asset('/assets/adminlte/img/user3-128x128.jpg')}}" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                        <img src="{{asset('/assets/adminlte/img/user3-128x128.jpg')}}" alt="User Avatar"
+                            class="img-size-50 img-circle mr-3">
                         <div class="media-body">
                             <h3 class="dropdown-item-title">
                                 Nora Silvester
@@ -118,10 +120,10 @@
                     <span>{{auth()->user()->nom_complet}}</span>
                 </li>
                 <li class="user-footer">
-                        <a href="/todo" class="btn btn-default btn-flat" style="width: 45%">Profile</a>
-                        <a class="btn btn-default btn-flat float-right" href="#" style="width: 45%"
-                       data-toggle="tooltip" data-placement="bottom" title="@lang('template::template.log_out')"
-                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <a href="/todo" class="btn btn-default btn-flat" style="width: 45%">Profile</a>
+                    <a class="btn btn-default btn-flat float-right" href="#" style="width: 45%" data-toggle="tooltip"
+                        data-placement="bottom" title="@lang('template::template.log_out')"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <i class="fa fa-fw fa-power-off"></i>
                     </a>
                     <form id="logout-form" action="{{route('logout')}}" method="POST" style="display: none;">

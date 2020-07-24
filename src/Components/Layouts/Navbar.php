@@ -6,21 +6,16 @@ use Illuminate\View\Component;
 
 class Navbar extends Component
 {
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
+    public $links;
 
     /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\View\View|string
+     * ['name' => 'NAME', 'link' => '/link']
      */
+    public function __construct($links = [])
+    {
+        $this->links = $links;
+    }
+
     public function render()
     {
         return view('lt-adminlte::components.layouts.navbar');

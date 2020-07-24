@@ -13,7 +13,7 @@
 
 <body class="hold-transition sidebar-mini">
     <div class="wrapper" id="app">
-        <x-adminlte-navbar></x-adminlte-navbar>
+        <x-adminlte-navbar :links="$navbarLinks"></x-adminlte-navbar>
         <x-adminlte-sidebar :title="$title"></x-adminlte-sidebar>
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
@@ -21,9 +21,14 @@
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
-                        <div class="col-sm-12">
+                        <div class="{{ $hasBreadcrumb() ? 'col-sm-6' : 'col-sm-12' }}">
                             <h1 class="m-0 text-dark">{{$pageTitle}}</h1>
                         </div>
+                        @if($hasBreadcrumb())
+                        <div class="col-sm-6">
+                            <x-adminlte-breadcrumb :links="$breadcrumb"></x-adminlte-breadcrumb>
+                        </div>
+                        @endif
                     </div>
                 </div>
             </div>

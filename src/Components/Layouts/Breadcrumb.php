@@ -6,12 +6,14 @@ use Illuminate\View\Component;
 
 class Breadcrumb extends Component
 {
-    /* array([ 'title' => 'url']) */
-    public $items = [];
+    public $links;
 
-    public function __construct($items = [])
+    /**
+     * ['name' => 'NAME', 'link' => '/link']
+     */
+    public function __construct($links = [])
     {
-        $this->items = $items;
+        $this->links = $links;
     }
 
     public function render()
