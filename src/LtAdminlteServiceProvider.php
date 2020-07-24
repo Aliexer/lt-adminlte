@@ -3,6 +3,15 @@
 namespace LaravelTemplate\LtAdminlte;
 
 use Illuminate\Support\ServiceProvider;
+use LaravelTemplate\LtAdminlte\Components\Layouts\Breadcrumb;
+use LaravelTemplate\LtAdminlte\Components\Layouts\ControlSidebar;
+use LaravelTemplate\LtAdminlte\Components\Layouts\Footer;
+use LaravelTemplate\LtAdminlte\Components\Layouts\MenuItem;
+use LaravelTemplate\LtAdminlte\Components\Layouts\Navbar;
+use LaravelTemplate\LtAdminlte\Components\Layouts\Scripts;
+use LaravelTemplate\LtAdminlte\Components\Layouts\Sidebar;
+use LaravelTemplate\LtAdminlte\Components\Layouts\Styles;
+use LaravelTemplate\LtAdminlte\Components\Main;
 
 class LtAdminlteServiceProvider extends ServiceProvider
 {
@@ -15,13 +24,25 @@ class LtAdminlteServiceProvider extends ServiceProvider
          * Optional methods to load your package assets
          */
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'lt-adminlte');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'lt-adminlte');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'lt-adminlte');
         // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
+        $this->loadViewComponentsAs('adminlte', [
+            Sidebar::class,
+            ControlSidebar::class,
+            Navbar::class,
+            Styles::class,
+            Scripts::class,
+            Footer::class,
+            MenuItem::class,
+            Breadcrumb::class,
+            Main::class
+        ]);
+
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('lt-adminlte.php'),
+                __DIR__ . '/../config/config.php' => config_path('lt-adminlte.php'),
             ], 'lt-adminlte:config');
 
             // Publishing the views.
@@ -50,7 +71,7 @@ class LtAdminlteServiceProvider extends ServiceProvider
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'lt-adminlte');
+        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'lt-adminlte');
 
         // Register the main class to use with the facade
         $this->app->singleton('lt-adminlte', function () {
