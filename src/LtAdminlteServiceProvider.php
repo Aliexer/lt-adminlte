@@ -48,9 +48,9 @@ class LtAdminlteServiceProvider extends ServiceProvider
             ], 'lt-adminlte:config');
 
             // Publishing the views.
-            /*$this->publishes([
+            $this->publishes([
                 __DIR__.'/../resources/views' => resource_path('views/vendor/lt-adminlte'),
-            ], 'lt-adminlte:views');*/
+            ], 'lt-adminlte:views');
 
             // Publishing assets.
             /*$this->publishes([
