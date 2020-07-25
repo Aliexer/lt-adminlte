@@ -14,8 +14,8 @@
             @if($slot != '')
             <i class="right fa-fw fas fa-angle-left"></i>
             @else
-            @if($hasLeftIcon())
-            <i class="right fa-fw {{$leftIcon}}"></i>
+            @if($hasRightIcon())
+            <i class="right fa-fw {{$rightIcon}}"></i>
             @endif
             @foreach($badges as $badge)
             <span class="right badge badge-{{$badge['type']}}">{{$badge['value']}}</span>

@@ -16,7 +16,7 @@ class SidebarLink extends Component
     /** fas fa-home */
     public string $icon;
     /** fas fa-home */
-    public string $leftIcon;
+    public string $rightIcon;
 
     public function __construct(
         string $title,
@@ -24,14 +24,14 @@ class SidebarLink extends Component
         array $route = [],
         array $badges = [],
         string $icon = "",
-        string $leftIcon = ""
+        string $rightIcon = ""
     ) {
         $this->title = $title;
         $this->url = $url;
         $this->route = $route;
         $this->badges = $badges;
         $this->icon = $icon;
-        $this->leftIcon = $leftIcon;
+        $this->rightIcon = $rightIcon;
     }
 
     public function render()
@@ -44,9 +44,9 @@ class SidebarLink extends Component
         return $this->icon !== '';
     }
 
-    public function hasLeftIcon()
+    public function hasRightIcon()
     {
-        return $this->leftIcon !== '';
+        return $this->rightIcon !== '';
     }
 
     public function link()
