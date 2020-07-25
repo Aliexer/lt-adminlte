@@ -1,7 +1,7 @@
 <!-- has-treeview menu-open -->
 <li class="nav-item {{ $slot != '' ? 'has-treeview' : ''}}">
     <!-- active -->
-    <a href="{{$link}}" class="nav-link">
+    <a href="{{$slot == '' ? $link() : '#'}}" class="nav-link">
         @if($hasIcon())
         <i class="nav-icon fa-fw {{$icon}}"></i>
         @else

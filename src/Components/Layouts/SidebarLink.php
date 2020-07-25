@@ -7,7 +7,8 @@ use Illuminate\View\Component;
 class SidebarLink extends Component
 {
     public string $title;
-    public string $link;
+    public string $url;
+    public array $route;
     /** [['type' => 'success', 'value' => 5]] */
     public array $badges;
     /** fas fa-home */
@@ -17,13 +18,15 @@ class SidebarLink extends Component
 
     public function __construct(
         string $title,
-        string $link = '',
+        string $url = '',
+        array $route = [],
         array $badges = [],
         string $icon = "",
         string $leftIcon = ""
     ) {
         $this->title = $title;
-        $this->link = $link;
+        $this->url = $url;
+        $this->route = $route;
         $this->badges = $badges;
         $this->icon = $icon;
         $this->leftIcon = $leftIcon;
@@ -42,5 +45,10 @@ class SidebarLink extends Component
     public function hasLeftIcon()
     {
         return $this->leftIcon !== '';
+    }
+
+    public function link()
+    {
+        return $this->route !== [] ? route(...($this->route)) : $this->url;
     }
 }
