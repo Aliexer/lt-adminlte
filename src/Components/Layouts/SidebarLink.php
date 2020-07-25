@@ -3,6 +3,8 @@
 namespace LaravelTemplate\LtAdminlte\Components\Layouts;
 
 use Illuminate\View\Component;
+use Illuminate\Support\Str;
+
 
 class SidebarLink extends Component
 {
@@ -50,5 +52,19 @@ class SidebarLink extends Component
     public function link()
     {
         return $this->route !== [] ? route(...($this->route)) : $this->url;
+    }
+
+    /**
+     * In order to set parent links active the child route name must
+     * star with parent route name followed by dot
+     * eg:
+     * Parent route: product
+     * Child route: product.create
+     */
+    public function isActive()
+    {
+        $currentRouteName = request()->route()->getName();
+
+        return Str::startsWith($currentRouteName, $this->route[0]);
     }
 }
