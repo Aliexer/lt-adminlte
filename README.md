@@ -1,4 +1,4 @@
-# Very short description of the package
+# LT-AdminLTE
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/laravel-template/lt-adminlte.svg?style=flat-square)](https://packagist.org/packages/laravel-template/lt-adminlte)
 [![Build Status](https://img.shields.io/travis/laravel-template/lt-adminlte/master.svg?style=flat-square)](https://travis-ci.org/laravel-template/lt-adminlte)
@@ -46,7 +46,9 @@ Just add the tag below depending on your desired layouts **_main_**:
 ```
 and more attribute may be added like:
 * **logo**: your logo link
+
 * **indexUrl**: your home page link triggered when clicking on your logo
+
 * **navbarLinks**: displays list of menus on the top left of the navbar the links must be in this format
 ```php
 [
@@ -57,6 +59,7 @@ and more attribute may be added like:
     ...
 ]
 ```
+
 * **breadcrumb**: breadcrumb also has the same format
 ```php
 [
@@ -91,7 +94,9 @@ Other attributes are disponible:
 ]
 ```
 * **icon**: use [FontAwesome v5.13](https://fontawesome.com) library, displayed in the left of the menu **if the menu is not parent**, default value is ```far fa-circle```
+
 * **rightIcon**: same a the normal icon the difference is this one is displayed on the right of the menu before the badges and **if the menu is not parent**
+
 * **url**: for external links to use it make sure that **the route attribute is not provided**
 
 
