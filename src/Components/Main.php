@@ -20,14 +20,14 @@ class Main extends Component
 
     public function __construct(
         string $title,
-        string $pageTitle,
+        string $pageTitle = "Page",
         array $navbarLinks = [],
         array $breadcrumb = [],
         string $indexUrl = null,
         string $logo = null
     ) {
         $this->title = $title;
-        $this->pageTitle = $pageTitle;
+        $this->pageTitle = $pageTitle !== "" ? $pageTitle : $title;
         $this->logo = $logo;
         $this->indexUrl = $indexUrl;
         $this->navbarLinks = $navbarLinks;
