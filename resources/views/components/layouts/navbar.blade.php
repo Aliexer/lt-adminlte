@@ -14,7 +14,7 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-        
+
         @if(false)
         <!-- Messages Dropdown Menu -->
         <li class="nav-item dropdown">
@@ -109,26 +109,37 @@
         </li>
         @endif
 
-        @if(false)
-        <!-- Control Sidebar action button -->
-        <li class="nav-item">
-            <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
-                    class="fas fa-th-large"></i></a>
-        </li>
-        @endif
-
         <li class="nav-item dropdown user-menu">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
                 <span class="d-inline fas fa-user"></span>
             </a>
             <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="width: 150px">
                 <li class="user-body border-0 text-center">
-                    <span>UserName</span>
+
+                    <!-- Content -->
+                    <p class="text-sm text-left">content of this section ca be edited from <strong class="text-info">navbar</strong> file
+                        under :</p>
+                    <ul class="text-sm text-left">
+                        <li> <i class="fas fa-folder fa-fw"></i> <span>resources</span></li>
+                        <li> <i class="fas fa-level-up-alt fa-rotate-90 fa-fw"></i><i class="fa-fw fas fa-folder"></i>
+                            <span>views</span></li>
+                        <li> <i class="fas fa-level-up-alt fa-rotate-90 fa-fw"></i><i class="fa-fw fas fa-folder"></i>
+                            <span>vendor</span></li>
+                        <li> <i class="fas fa-level-up-alt fa-rotate-90 fa-fw"></i><i class="fa-fw fas fa-folder"></i>
+                            <span>lt-adminlte</span></li>
+                        <li> <i class="fas fa-level-up-alt fa-rotate-90 fa-fw"></i><i class="fa-fw fas fa-folder"></i>
+                            <span>components</span></li>
+                        <li> <i class="fas fa-level-up-alt fa-rotate-90 fa-fw"></i><i class="fa-fw fas fa-folder"></i>
+                            <span>layouts</span></li>
+                        <li class="text-success"> <i class="fas fa-level-up-alt fa-rotate-90 fa-fw"></i><i
+                                class="fa-fw fas fa-file-code"></i> <b>navbar.blade.php</b></li>
+                    </ul>
+                    <!-- End Content -->
                 </li>
                 <li class="user-footer">
                     <a href="/todo" class="btn btn-default btn-flat" style="width: 45%">Profile</a>
                     <a class="btn btn-default btn-flat float-right" href="#" style="width: 45%" data-toggle="tooltip"
-                        data-placement="bottom" title="@lang('template::template.log_out')"
+                        data-placement="bottom" title="Logout"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <i class="fa fa-fw fa-power-off"></i>
                     </a>
@@ -139,6 +150,13 @@
             </ul>
         </li>
 
+        @if(config('lt-adminlte.control-sidebar'))
+        <!-- Control Sidebar action button -->
+        <li class="nav-item">
+            <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
+                    class="fas fa-cog"></i></a>
+        </li>
+        @endif
     </ul>
 </nav>
 <!-- /.navbar -->

@@ -23,7 +23,9 @@
                 </div>
             </div>
         </div>
+        @if(config('lt-adminlte.control-sidebar'))
         <x-adminlte-control-sidebar></x-adminlte-control-sidebar>
+        @endif
         <x-adminlte-footer></x-adminlte-footer>
     </div>
     <x-adminlte-scripts></x-adminlte-scripts>
