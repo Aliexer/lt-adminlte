@@ -8,6 +8,7 @@ use LaravelTemplate\LtAdminlte\Components\Layouts\ControlSidebar;
 use LaravelTemplate\LtAdminlte\Components\Layouts\Footer;
 use LaravelTemplate\LtAdminlte\Components\Layouts\MenuItem;
 use LaravelTemplate\LtAdminlte\Components\Layouts\Navbar;
+use LaravelTemplate\LtAdminlte\Components\Layouts\PageHeader;
 use LaravelTemplate\LtAdminlte\Components\Layouts\Scripts;
 use LaravelTemplate\LtAdminlte\Components\Layouts\Sidebar;
 use LaravelTemplate\LtAdminlte\Components\Layouts\SidebarLink;
@@ -39,6 +40,7 @@ class LtAdminlteServiceProvider extends ServiceProvider
             Footer::class,
             MenuItem::class,
             Breadcrumb::class,
+            PageHeader::class,
             Main::class
         ]);
 

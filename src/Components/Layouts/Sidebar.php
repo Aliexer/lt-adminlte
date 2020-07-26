@@ -6,17 +6,9 @@ use Illuminate\View\Component;
 
 class Sidebar extends Component
 {
-    public $title;
-
-    public $logo;
-    
-    public $indexUrl;
-
-    public function __construct(string $title, string $indexUrl = null, string $logo = null)
+    public function __construct()
     {
-        $this->title = $title;
-        $this->logo = $logo;
-        $this->indexUrl = $indexUrl;
+        
     }
 
     public function render()
