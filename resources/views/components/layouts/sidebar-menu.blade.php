@@ -1,4 +1,4 @@
-<x-adminlte-sidebar-link icon="fas fa-home" title="Example Link" url="/"/>
+<x-adminlte-sidebar-link icon="fas fa-home" title="Example Link" exact url="/" />
 
 <x-adminlte-sidebar-link title="Parent" url="/first">
     <x-adminlte-sidebar-link title="Child" url="/first/second">

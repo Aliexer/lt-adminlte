@@ -10,6 +10,7 @@ class SidebarLink extends Component
 {
     public string $title;
     public string $url;
+    public bool $exact;
     public array $route;
     /** [['type' => 'success', 'value' => 5]] */
     public array $badges;
@@ -23,6 +24,7 @@ class SidebarLink extends Component
         string $url = '',
         array $route = [],
         array $badges = [],
+        bool $exact = false,
         string $icon = "",
         string $rightIcon = ""
     ) {
@@ -30,6 +32,7 @@ class SidebarLink extends Component
         $this->url = $url;
         $this->route = $route;
         $this->badges = $badges;
+        $this->exact = $exact;
         $this->icon = $icon;
         $this->rightIcon = $rightIcon;
     }
@@ -59,6 +62,11 @@ class SidebarLink extends Component
         return $this->route !== [];
     }
 
+    public function isExact()
+    {
+        return $this->exact === true;
+    }
+
     /**
      * In order to set parent links active the child route name must
      * star with parent route name followed by dot
@@ -68,11 +76,10 @@ class SidebarLink extends Component
      */
     public function isActive()
     {
-        if ($this->hasRoute()) {
-            $currentRouteName = request()->route()->getName();
+        $currentLink = $this->hasRoute() ? request()->route()->getName() : request()->url();
 
-            return Str::startsWith($currentRouteName, $this->route[0]);
-        }
-        return Str::startsWith(request()->url(), url($this->url));
+        $thisLink = $this->hasRoute() ? $this->route[0] : url($this->url);
+
+        return $this->isExact() ? $currentLink === $thisLink : Str::startsWith($currentLink, $thisLink);
     }
 }
