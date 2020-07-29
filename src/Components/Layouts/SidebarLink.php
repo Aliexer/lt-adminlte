@@ -51,7 +51,12 @@ class SidebarLink extends Component
 
     public function link()
     {
-        return $this->route !== [] ? route(...($this->route)) : $this->url;
+        return $this->hasRoute() ? route(...($this->route)) : $this->url;
+    }
+
+    public function hasRoute()
+    {
+        return $this->route !== [];
     }
 
     /**
@@ -63,8 +68,11 @@ class SidebarLink extends Component
      */
     public function isActive()
     {
-        $currentRouteName = request()->route()->getName();
+        if ($this->hasRoute()) {
+            $currentRouteName = request()->route()->getName();
 
-        return Str::startsWith($currentRouteName, $this->route[0]);
+            return Str::startsWith($currentRouteName, $this->route[0]);
+        }
+        return Str::startsWith(request()->url(), url($this->url));
     }
 }
