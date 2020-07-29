@@ -117,7 +117,7 @@
                 <li class="user-body border-0 text-center">
 
                     <!-- Content -->
-                    <p class="text-sm text-left">content of this section ca be edited from <strong class="text-info">navbar</strong> file
+                    <p class="text-sm text-left">content of this section can be edited from <strong class="text-info">navbar</strong> file
                         under :</p>
                     <ul class="text-sm text-left">
                         <li> <i class="fas fa-folder fa-fw"></i> <span>resources</span></li>
