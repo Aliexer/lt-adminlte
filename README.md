@@ -9,6 +9,8 @@ Welcome to the lt-adminlte!
 
 This package provide an easy way to implement AdminLTE template on your Laravel Application.
 
+![Main Layout](https://raw.githubusercontent.com/laravel-template/lt-adminlte/dev/demo/main-layout.gif)
+
 More templates integrations will be added later in  [laravel-template](https://github.com/laravel-template).
 
 
