@@ -116,8 +116,9 @@
             <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="width: 150px">
                 <li class="user-body border-0 text-center">
 
-                    <!-- Content -->
-                    <p class="text-sm text-left">content of this section can be edited from <strong class="text-info">navbar</strong> file
+                    <!-- To Be Removed -->
+                    <p class="text-sm text-left">content of this section can be edited from <strong
+                            class="text-info">navbar</strong> file
                         under :</p>
                     <ul class="text-sm text-left">
                         <li> <i class="fas fa-folder fa-fw"></i> <span>resources</span></li>
@@ -134,7 +135,8 @@
                         <li class="text-success"> <i class="fas fa-level-up-alt fa-rotate-90 fa-fw"></i><i
                                 class="fa-fw fas fa-file-code"></i> <b>navbar.blade.php</b></li>
                     </ul>
-                    <!-- End Content -->
+                    <!-- /To Be Removed -->
+                    
                 </li>
                 <li class="user-footer">
                     <a href="/todo" class="btn btn-default btn-flat" style="width: 45%">Profile</a>
