@@ -3,6 +3,7 @@
 namespace LaravelTemplate\LtAdminlte;
 
 use Illuminate\Support\ServiceProvider;
+use LaravelTemplate\LtAdminlte\Components\Auth;
 use LaravelTemplate\LtAdminlte\Components\Layouts\Breadcrumb;
 use LaravelTemplate\LtAdminlte\Components\Layouts\ControlSidebar;
 use LaravelTemplate\LtAdminlte\Components\Layouts\Footer;
@@ -43,7 +44,9 @@ class LtAdminlteServiceProvider extends ServiceProvider
             MenuItem::class,
             Breadcrumb::class,
             PageHeader::class,
-            Main::class
+            //Views
+            Main::class,
+            Auth::class
         ]);
 
         if ($this->app->runningInConsole()) {
