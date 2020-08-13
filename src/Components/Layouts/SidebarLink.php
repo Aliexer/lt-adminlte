@@ -12,6 +12,8 @@ class SidebarLink extends Component
     public string $url;
     public bool $exact;
     public array $route;
+    public string $parentRoute;
+    public string $parentUrl;
     /** [['type' => 'success', 'value' => 5]] */
     public array $badges;
     /** fas fa-home */
@@ -23,6 +25,8 @@ class SidebarLink extends Component
         string $title,
         string $url = '',
         array $route = [],
+        string $parentRoute = "",
+        string $parentUrl = "",
         array $badges = [],
         bool $exact = false,
         string $icon = "",
@@ -31,6 +35,8 @@ class SidebarLink extends Component
         $this->title = $title;
         $this->url = $url;
         $this->route = $route;
+        $this->parentRoute = $parentRoute;
+        $this->parentUrl = $parentUrl;
         $this->badges = $badges;
         $this->exact = $exact;
         $this->icon = $icon;
@@ -62,6 +68,21 @@ class SidebarLink extends Component
         return $this->route !== [];
     }
 
+    public function hasParentRoute()
+    {
+        return $this->parentRoute !== "";
+    }
+
+    public function hasParentUrl()
+    {
+        return $this->parentUrl !== "";
+    }
+
+    public function isParent()
+    {
+        return $this->hasParentRoute() || $this->hasParentUrl();
+    }
+
     public function isExact()
     {
         return $this->exact === true;
@@ -76,9 +97,15 @@ class SidebarLink extends Component
      */
     public function isActive()
     {
-        $currentLink = $this->hasRoute() ? request()->route()->getName() : request()->url();
+        if ($this->isParent()) {
+            $currentLink = $this->hasParentRoute() ? request()->route()->getName() : request()->url();
 
-        $thisLink = $this->hasRoute() ? $this->route[0] : url($this->url);
+            $thisLink = $this->hasParentRoute() ? $this->parentRoute : url($this->parentUrl);
+        } else {
+            $currentLink = $this->hasRoute() ? request()->route()->getName() : request()->url();
+
+            $thisLink = $this->hasRoute() ? $this->route[0] : url($this->url);
+        }
 
         return $this->isExact() ? $currentLink === $thisLink : Str::startsWith($currentLink, $thisLink);
     }
