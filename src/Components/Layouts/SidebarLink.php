@@ -11,7 +11,7 @@ class SidebarLink extends Component
     public string $title;
     public string $url;
     public bool $exact;
-    public array $route;
+    public $route;
     public string $parentRoute;
     public string $parentUrl;
     /** [['type' => 'success', 'value' => 5]] */
@@ -24,13 +24,13 @@ class SidebarLink extends Component
     public function __construct(
         string $title,
         string $url = '',
-        array $route = [],
-        string $parentRoute = "",
-        string $parentUrl = "",
+        $route = '',
+        string $parentRoute = '',
+        string $parentUrl = '',
         array $badges = [],
         bool $exact = false,
-        string $icon = "",
-        string $rightIcon = ""
+        string $icon = '',
+        string $rightIcon = ''
     ) {
         $this->title = $title;
         $this->url = $url;
@@ -60,27 +60,42 @@ class SidebarLink extends Component
 
     public function link()
     {
-        return $this->hasRoute() ? route(...($this->route)) : $this->url;
+        return $this->hasRoute() ? route(...$this->getRoute()) : $this->url;
     }
 
     public function hasRoute()
     {
-        return $this->route !== [];
+        return $this->route !== '';
     }
 
     public function hasParentRoute()
     {
-        return $this->parentRoute !== "";
+        return $this->parentRoute !== '';
     }
 
     public function hasParentUrl()
     {
-        return $this->parentUrl !== "";
+        return $this->parentUrl !== '';
     }
 
     public function isParent()
     {
         return $this->hasParentRoute() || $this->hasParentUrl();
+    }
+
+    public function getRoute()
+    {
+        return is_array($this->route) ? $this->route : [$this->route];
+    }
+
+    public function getRouteName()
+    {
+        return is_array($this->route) ? $this->route[0] : $this->route;
+    }
+
+    public function getRouteParameters()
+    {
+        return is_array($this->route) ? $this->route[1] : null;
     }
 
     public function isExact()
@@ -104,7 +119,7 @@ class SidebarLink extends Component
         } else {
             $currentLink = $this->hasRoute() ? request()->route()->getName() : request()->url();
 
-            $thisLink = $this->hasRoute() ? $this->route[0] : url($this->url);
+            $thisLink = $this->hasRoute() ? $this->getRouteName() : url($this->url);
         }
 
         return $this->isExact() ? $currentLink === $thisLink : Str::startsWith($currentLink, $thisLink);
