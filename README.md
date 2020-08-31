@@ -44,7 +44,7 @@ This package use [Blade Component](https://laravel.com/docs/7.x/blade#components
 
 Just add the tag below depending on your desired layouts **_main_**:
 ``` php
-<x-adminlte-main title="Your App Name" pageTitle="the active page title">Page Content</x-adminlte-main>
+<x-lte-main title="Your App Name" pageTitle="the active page title">Page Content</x-lte-main>
 ```
 and more attribute may be added like:
 * **logo**: your logo link
@@ -78,11 +78,11 @@ To update the sidebar menu, make you sure you already published the views, then 
 
 then add navigation links under `<!-- Add navigation links here-->` comment
 ```php
-<x-adminlte-sidebar-link title="Title" :route="['routeName']"/>
+<x-lte-sidebar-link title="Title" :route="['routeName']"/>
 
-<x-adminlte-sidebar-link title="Parent" :route="['parentRoute']">
-    <x-adminlte-sidebar-link title="Child" :route="['parentRoute.childRoute']" />
-</x-adminlte-sidebar-link>
+<x-lte-sidebar-link title="Parent" :route="['parentRoute']">
+    <x-lte-sidebar-link title="Child" :route="['parentRoute.childRoute']" />
+</x-lte-sidebar-link>
 ```
 Other attributes are disponible:
 * **badges**: displayed on the left of menu to that contain a value and a type like 

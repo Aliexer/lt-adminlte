@@ -6,7 +6,7 @@
             </div>
             @if($hasBreadcrumb())
             <div class="col-sm-6">
-                <x-adminlte-breadcrumb :links="$breadcrumb"></x-adminlte-breadcrumb>
+                <x-lte-breadcrumb :links="$breadcrumb"></x-lte-breadcrumb>
             </div>
             @endif
         </div>

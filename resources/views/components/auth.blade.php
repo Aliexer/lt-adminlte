@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
     <title>E-CAP</title>
-    <x-adminlte-styles></x-adminlte-styles>
+    <x-lte-styles></x-lte-styles>
 </head>
 
 <body class="hold-transition login-page">
@@ -26,7 +26,7 @@
         </div>
     </div>
 
-    <x-adminlte-scripts>
+    <x-lte-scripts>
         @if($background)
             @push('scripts')
             <script>
@@ -37,7 +37,7 @@
             </script>
             @endpush
         @endif
-    </x-adminlte-scripts>
+    </x-lte-scripts>
 
 </body>
 

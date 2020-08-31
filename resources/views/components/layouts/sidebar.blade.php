@@ -16,7 +16,7 @@
             <ul class="nav nav-pills nav-sidebar nav-child-indent flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
                 <!-- Add navigation links here-->
-                <x-adminlte-sidebar-menu></x-adminlte-sidebar-menu>
+                <x-lte-sidebar-menu></x-lte-sidebar-menu>
             </ul>
 
             <!-- To Be Removed -->

@@ -15,6 +15,7 @@ use LaravelTemplate\LtAdminlte\Components\Layouts\Sidebar;
 use LaravelTemplate\LtAdminlte\Components\Layouts\SidebarLink;
 use LaravelTemplate\LtAdminlte\Components\Layouts\SidebarMenu;
 use LaravelTemplate\LtAdminlte\Components\Layouts\Styles;
+use LaravelTemplate\LtAdminlte\Components\Elements\Card;
 use LaravelTemplate\LtAdminlte\Components\Main;
 
 class LtAdminlteServiceProvider extends ServiceProvider
@@ -32,22 +33,7 @@ class LtAdminlteServiceProvider extends ServiceProvider
         // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
-        $this->loadViewComponentsAs('adminlte', [
-            Sidebar::class,
-            SidebarLink::class,
-            SidebarMenu::class,
-            ControlSidebar::class,
-            Navbar::class,
-            Styles::class,
-            Scripts::class,
-            Footer::class,
-            MenuItem::class,
-            Breadcrumb::class,
-            PageHeader::class,
-            //Views
-            Main::class,
-            Auth::class
-        ]);
+        $this->loadAdminLteComponents();
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
@@ -86,5 +72,31 @@ class LtAdminlteServiceProvider extends ServiceProvider
         $this->app->singleton('lt-adminlte', function () {
             return new LtAdminlte;
         });
+    }
+
+    private function loadAdminLteComponents()
+    {
+        $this->loadViewComponentsAs('lte', [
+            //Layouts
+            Sidebar::class,
+            SidebarLink::class,
+            SidebarMenu::class,
+            ControlSidebar::class,
+            Navbar::class,
+            Styles::class,
+            Scripts::class,
+            Footer::class,
+            MenuItem::class,
+            Breadcrumb::class,
+            PageHeader::class,
+            //Views
+            Main::class,
+            Auth::class
+        ]);
+
+        $this->loadViewComponentsAs('lte-elements', [
+            //UI
+            Card::class,
+        ]);
     }
 }
