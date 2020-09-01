@@ -16,6 +16,8 @@ use LaravelTemplate\LtAdminlte\Components\Layouts\SidebarLink;
 use LaravelTemplate\LtAdminlte\Components\Layouts\SidebarMenu;
 use LaravelTemplate\LtAdminlte\Components\Layouts\Styles;
 use LaravelTemplate\LtAdminlte\Components\Elements\Card;
+use LaravelTemplate\LtAdminlte\Components\Fields\FormGroup;
+use LaravelTemplate\LtAdminlte\Components\Fields\Input;
 use LaravelTemplate\LtAdminlte\Components\Main;
 
 class LtAdminlteServiceProvider extends ServiceProvider
@@ -97,6 +99,12 @@ class LtAdminlteServiceProvider extends ServiceProvider
         $this->loadViewComponentsAs('lte-elements', [
             //UI
             Card::class,
+        ]);
+
+        $this->loadViewComponentsAs('lte-fields', [
+            //UI
+            FormGroup::class,
+            Input::class
         ]);
     }
 }
